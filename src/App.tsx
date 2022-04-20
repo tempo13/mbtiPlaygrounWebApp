@@ -1,24 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ContentCard from './components/Contents/index'
+import content from './data/contentTitle.json'
 
 function App() {
+  let contentList = content.map((value, key) => <ContentCard title={value.title} subtitle={value.subtitle} createdAt={value.createdAt}/>)
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container mx-auto'>
+        <div className='grid gap-0 grid-cols-3'>
+          {contentList}
+        </div>
+      </div>
     </div>
   );
 }
